@@ -1,2 +1,12 @@
 @startuml
+actor "مدیر سیستم" as Admin
+
+participant "سیستم" as System
+participant "پایگاه داده" as DB
+
+Admin -> System : درخواست گزارش تردد
+System -> DB : دریافت اطلاعات تردد
+DB --> System : لیست ترددها
+System --> Admin : نمایش گزارش
+
 @enduml

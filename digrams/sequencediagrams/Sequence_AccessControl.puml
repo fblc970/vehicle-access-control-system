@@ -1,2 +1,20 @@
 @startuml
+actor "دوربین پلاک‌خوان" as Camera
+
+participant "سیستم" as System
+participant "پایگاه داده" as DB
+participant "راهبند" as Barrier
+
+Camera -> System : ارسال شماره پلاک
+System -> DB : بررسی مجوز ورود
+DB --> System : مجاز / غیرمجاز
+
+alt مجاز
+System -> Barrier : باز کردن راهبند
+Barrier --> System : راهبند باز شد
+System --> Camera : اجازه ورود
+else غیرمجاز
+System --> Camera : عدم اجازه ورود
+end
+
 @enduml

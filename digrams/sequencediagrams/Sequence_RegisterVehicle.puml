@@ -1,2 +1,12 @@
 @startuml
+actor "اپراتور" as Operator
+
+participant "سیستم" as System
+participant "پایگاه داده" as DB
+
+Operator -> System : ثبت اطلاعات خودرو
+System -> DB : ذخیره اطلاعات خودرو
+DB --> System : تایید ذخیره
+System --> Operator : نمایش پیام موفقیت
+
 @enduml

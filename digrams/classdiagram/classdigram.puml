@@ -1,2 +1,50 @@
 @startuml
+
+class User {
+  userId
+  username
+  password
+  role
+}
+
+class Driver {
+  driverId
+  fullName
+  phone
+  licenseNumber
+}
+
+class Vehicle {
+  plateNumber
+  model
+  color
+  vehicleType
+}
+
+class AccessPermission {
+  permissionId
+  validFrom
+  validTo
+  isActive
+}
+
+class TrafficLog {
+  logId
+  entryTime
+  exitTime
+  status
+}
+
+class Barrier {
+  barrierId
+  location
+  status
+}
+
+User "1" -- "0..*" Driver
+Driver "1" -- "0..*" Vehicle
+Vehicle "1" -- "0..*" AccessPermission
+Vehicle "1" -- "0..*" TrafficLog
+Barrier "1" -- "0..*" TrafficLog
+
 @enduml
